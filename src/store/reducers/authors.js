@@ -8,15 +8,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_AUTHORS:
+    case actionTypes.FETCH_AUTHORS:
       return {
         ...state,
-        authors: state.authors.push(action.payload),
+        authors: action.payload,
         filteredAuthors: state.filteredAuthors.concat(action.payload),
         loading: false
       };
 
     case actionTypes.FILTER_AUTHORS:
+      console.log(state.authors);
       return {
         ...state,
         filteredAuthors: state.authors.filter(author => {

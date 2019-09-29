@@ -10,6 +10,7 @@ export const fetchAuthors = () => {
   return async dispatch => {
     const res = await instance.get("/api/authors/");
     const authors = res.data;
+    console.log(authors);
     dispatch({ type: actionTypes.FETCH_AUTHORS, payload: authors });
   };
 };
